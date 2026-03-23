@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISIT-2 | Team Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Manrope:wght@300;500;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            cursor: none; 
+        }
+
+        @media (min-width: 768px) {
+            .cursor-dot, .cursor-outline {
+                position: fixed;
+                top: 0; left: 0;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                z-index: 9999;
+                pointer-events: none;
+                display: block;
+            }
+            .cursor-dot { width: 8px; height: 8px; background-color: white; }
+            .cursor-outline {
+                width: 40px; height: 40px;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                transition: width 0.2s, height 0.2s, background-color 0.2s;
+            }
+            body:hover .cursor-outline.hovered {
+                width: 80px; height: 80px;
+                background-color: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(2px);
+                border-color: transparent;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .cursor-dot, .cursor-outline { display: none !important; }
+            body { cursor: auto; }
+        }
+
+        .font-display { font-family: 'Syncopate', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .reveal { opacity: 0; transform: translateY(100px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (min-width: 768px) {
+            .tilt-card { transform-style: preserve-3d; transform: perspective(1000px); }
+            .tilt-inner { transition: transform 0.1s ease-out; transform: translateZ(20px); }
+        }
+
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05; pointer-events: none; z-index: 9998;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader" class="fixed inset-0 z-[10000] bg-black flex items-center justify-center text-white font-display text-4xl md:text-6xl font-bold">
+        <div class="flex flex-col items-center">
+            <div class="flex items-end">
+                <span>LOADING</span>
+                <span id="counter" class="ml-4 text-blue-500 w-24">0%</span>
+            </div>
+            <div class="text-xs font-sans font-normal tracking-widest mt-4 text-gray-500 animate-pulse">SYSTEM INITIALIZATION</div>
+        </div>
+    </div>
+
+    <canvas id="particles" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none opacity-40"></canvas>
+
+    <div class="noise"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header class="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-center z-50 mix-blend-difference">
+        <div class="font-display font-bold text-xl tracking-widest hover-trigger">ISIT-2</div>
+        <div class="text-xs uppercase tracking-[0.3em] hidden md:block">Bishkek State University</div>
+    </header>
+
+    <section class="h-screen flex flex-col justify-center items-center relative px-4">
+        <div class="reveal active text-center z-10">
+            <p class="text-sm md:text-base text-gray-400 mb-4 tracking-[0.5em] uppercase">Stats & Code</p>
+            <h1 class="font-display text-5xl md:text-8xl font-bold leading-tight hover-trigger">
+                DATA<br>DRIVEN
+            </h1>
+        </div>
+        
+        <div class="absolute inset-0 z-0">
+             <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]"></div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest animate-bounce">Scroll Down</div>
+    </section>
+
+    <section class="min-h-[40vh] flex items-center justify-center py-20 relative z-10">
+        <div class="max-w-4xl px-6 text-center">
+            <p class="text-xl md:text-3xl leading-relaxed font-light text-gray-400 reveal">
+                Команда <span class="text-white font-bold">ИСИТ-2</span>. Мы объединяем точность статистики с мощью современных технологий.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 md:px-12 relative z-10">
+        
+        <div class="flex flex-col md:flex-row items-center gap-12 mb-40 reveal">
+            <div class="w-full md:w-1/2 h-[500px] md:h-[600px] relative tilt-card hover-trigger">
+                <div class="w-full h-full overflow-hidden relative shadow-2xl shadow-blue-900/20 tilt-inner bg-gray-900">
+                    <img src="C:\Users\User\Pictures\Saved Pictures\121212.jpg" 
+                        
+                         class="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-700 hover:grayscale-0 hover:scale-105" alt="Bekbol">
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black to-transparent">
+                        <div class="font-display text-3xl md:text-4xl font-bold mb-2">БЕКБОЛ</div>
+                        <div class="text-blue-400 tracking-widest text-xs uppercase font-bold border-l-2 border-blue-500 pl-3">
+                            19 ЛЕТ / Team Lead
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 md:pl-10">
+                <div class="border-l-2 border-white pl-6">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2">Бекбол Кадырбеков</h3>
+                    <p class="text-blue-500 mb-6 font-mono text-sm tracking-widest">ANDROID DEVELOPER</p>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Капитан команды. Архитектор мобильных решений. Отвечает за стратегию и техническую реализацию проекта.
+                        Владеет Kotlin, управляет хаосом и ведет команду к победе.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-[#111] p-4 border border-gray-800">
+                            <div class="text-xs text-gray-500 mb-1">SKILL</div>
+                            <div class="text-xl font-bold text-white">Kotlin</div>
+                        </div>
+                        <div class="bg-[#111] p-4 border border-gray-800">
+                            <div class="text-xs text-gray-500 mb-1">ROLE</div>
+                            <div class="text-xl font-bold text-blue-500">Leader</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-40 reveal">
+            <div class="w-full md:w-1/2 h-[500px] md:h-[600px] relative tilt-card hover-trigger">
+                <div class="w-full h-full overflow-hidden relative shadow-2xl shadow-purple-900/20 tilt-inner bg-gray-900">
+                    <img src="C:\Users\User\Pictures\Saved Pictures\343434.jpeg" 
+                        
+                         class="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-700 hover:grayscale-0 hover:scale-105" alt="Samat">
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black to-transparent">
+                        <div class="font-display text-3xl md:text-4xl font-bold mb-2">САМАТ</div>
+                        <div class="text-purple-400 tracking-widest text-xs uppercase font-bold border-l-2 border-purple-500 pl-3">
+                            20 ЛЕТ / Analyst
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 md:pr-10 text-right">
+                <div class="border-r-2 border-white pr-6">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2">Калматов Самат</h3>
+                    <p class="text-purple-500 mb-6 font-mono text-sm tracking-widest">DATA ANALYST</p>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Аналитический центр команды. Видит структуры данных там, где другие видят просто цифры. 
+                        Отвечает за обработку массивов и поиск корреляций.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 justify-items-end">
+                        <div class="bg-[#111] p-4 border border-gray-800 w-full text-right">
+                            <div class="text-xs text-gray-500 mb-1">SKILL</div>
+                            <div class="text-xl font-bold text-white">Python</div>
+                        </div>
+                        <div class="bg-[#111] p-4 border border-gray-800 w-full text-right">
+                            <div class="text-xs text-gray-500 mb-1">ROLE</div>
+                            <div class="text-xl font-bold text-purple-500">Logic</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-12 reveal">
+            <div class="w-full md:w-1/2 h-[500px] md:h-[600px] relative tilt-card hover-trigger">
+                <div class="w-full h-full overflow-hidden relative shadow-2xl shadow-green-900/20 tilt-inner bg-gray-900">
+                    <img src="C:\Users\User\Pictures\Saved Pictures\232323.jpeg" 
+                        
+                         class="w-full h-full object-cover filter grayscale contrast-125 transition-all duration-700 hover:grayscale-0 hover:scale-105" alt="Rasul">
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black to-transparent">
+                        <div class="font-display text-3xl md:text-4xl font-bold mb-2">РАСУЛ</div>
+                        <div class="text-green-400 tracking-widest text-xs uppercase font-bold border-l-2 border-green-500 pl-3">
+                            18 ЛЕТ / Researcher
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 md:pl-10">
+                <div class="border-l-2 border-white pl-6">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2">Мамедов Расул</h3>
+                    <p class="text-green-500 mb-6 font-mono text-sm tracking-widest">RESEARCHER</p>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Самый молодой участник, отвечающий за сбор данных и фактологию. 
+                        Находит скрытые источники информации и обеспечивает точность исследования.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-[#111] p-4 border border-gray-800">
+                            <div class="text-xs text-gray-500 mb-1">SKILL</div>
+                            <div class="text-xl font-bold text-white">OSINT</div>
+                        </div>
+                        <div class="bg-[#111] p-4 border border-gray-800">
+                            <div class="text-xs text-gray-500 mb-1">ROLE</div>
+                            <div class="text-xl font-bold text-green-500">Scout</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <footer class="h-[50vh] flex flex-col justify-center items-center bg-white text-black text-center reveal relative overflow-hidden mt-20 z-10">
+        <div class="z-10">
+            <h2 class="font-display text-4xl md:text-7xl font-black mb-6 hover-trigger">READY TO WIN?</h2>
+            <p class="text-xl mb-10 tracking-widest">Олимпиада 2026</p>
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-display font-black text-gray-100 whitespace-nowrap opacity-50 select-none pointer-events-none">
+            ISIT-2
+        </div>
+    </footer>
+
+    <script>
+        const counter = document.getElementById('counter');
+        const preloader = document.getElementById('preloader');
+        let count = 0;
+        
+        const interval = setInterval(() => {
+            count += Math.floor(Math.random() * 5) + 1;
+            if (count > 100) count = 100;
+            counter.innerText = count + '%';
+            
+            if (count === 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.style.transition = 'opacity 0.8s ease';
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.remove(), 800);
+                }, 500);
+            }
+        }, 30);
+
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.3; 
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.size = Math.random() * 2;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(255,255,255,0.4)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 150) {
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist/1500})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+            });
+
+            document.querySelectorAll('.hover-trigger').forEach(el => {
+                el.addEventListener('mouseenter', () => cursorOutline.classList.add('hovered'));
+                el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hovered'));
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            document.querySelectorAll('.tilt-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -8;
+                    const rotateY = ((x - centerX) / centerX) * 8;
+                    card.children[0].style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.children[0].style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                });
+            });
+        }
+    </script>
+</body>
+</html>
